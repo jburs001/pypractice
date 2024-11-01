@@ -18,7 +18,7 @@ def add_expense():
     
     while True:
         try:
-            amount = float("Please enter the ammount of the expense: ")
+            amount = float(input("Please enter the amount of the expense: "))
             if amount <= 0:
                 print("Amount must be a positive number. Please try again.")
             else:
