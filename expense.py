@@ -48,10 +48,10 @@ def show_expenses():
     
     total = 0  # 
 
-    for expense in expenses:
+    for expense in expenses: #loop thrpugh the list of dictionaries 
         print(f"Category: {expense['category']}")
         print(f"Description: {expense['description']}")
-        print(f"Amount: ${expense['amount']:.2f}")
+        print(f"Amount: ${expense['amount']:.2f}") #this is for printing as a number with two decimal places.
         print("-" * 40)
 
 # Add the amount to the total
@@ -59,6 +59,17 @@ def show_expenses():
 
     print(f"Total Expenses: ${total:.2f}")
     print("=" * 40)
+
+def filter():
+    category = input("Enter the category you want to filter by (e.g., Food, Travel): ")
+    matching_expenses = [expense for expense in expenses if expense['category'].lower() == category.lower()]
+#^This line is a list comprehension that creates a new list called matching_expenses, 
+#which contains only the expenses that match the specified category (ignoring case).
+
+    if not expenses:
+        print("No expenses recorded yet.")
+        return
+    
 
 def show_menu():
 
@@ -92,7 +103,7 @@ while True:
          
     elif choice == "3":
         print("You chose to filter.")
-        #Code for filtering
+        filter()
 
     elif choice == "4":
         print("You chose to calculate the total.")
