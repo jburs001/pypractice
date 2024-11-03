@@ -37,7 +37,28 @@ def add_expense():
     expenses.append(expense)
     print("expense added successfully.\n")
 
+def show_expenses():
+    if not expenses:
+        print("No expenses recorded yet.")
+        return
+        
+    print("=" * 40)
+    print("Current Expenses:")
+    print("=" * 40)
+    
+    total = 0  # 
 
+    for expense in expenses:
+        print(f"Category: {expense['category']}")
+        print(f"Description: {expense['description']}")
+        print(f"Amount: ${expense['amount']:.2f}")
+        print("-" * 40)
+
+# Add the amount to the total
+        total += expense['amount']
+
+    print(f"Total Expenses: ${total:.2f}")
+    print("=" * 40)
 
 def show_menu():
 
@@ -65,19 +86,19 @@ while True:
     if choice == "1":
         add_expense()
 
-    if choice == "2":
+    elif choice == "2":
         print("You chose to view expenses")
-        #code to view expenses
-
-    if choice == "3":
+        show_expenses()
+         
+    elif choice == "3":
         print("You chose to filter.")
         #Code for filtering
 
-    if choice == "4":
+    elif choice == "4":
         print("You chose to calculate the total.")
         #Code for calculating the total.
 
-    if choice == "5":
+    elif choice == "5":
         print("Saving and quitting...")
         #Code for saving and quitting.
         break #exit the loop
