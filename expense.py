@@ -69,6 +69,22 @@ def filter():
     if not expenses:
         print("No expenses recorded yet.")
         return
+
+def calculate_total():
+    if not expenses:
+        print("No expenses recorded yet. Total is $0.00.")
+        return
+
+    # Calculate the total amount of all expenses
+    total = sum(expense['amount'] for expense in expenses)
+    #The sum() function takes an iterable (such as a list or generator) and adds up all its elements.
+    #This part is a generator expression that iterates through each expense dictionary in the expenses list and retrieves the amount value from each dictionary.
+
+        
+    # Display the total
+    print("=" * 40)
+    print(f"Total of all recorded expenses: ${total:.2f}")
+    print("=" * 40)
     
 
 def show_menu():
@@ -107,7 +123,7 @@ while True:
 
     elif choice == "4":
         print("You chose to calculate the total.")
-        #Code for calculating the total.
+        calculate_total()
 
     elif choice == "5":
         print("Saving and quitting...")
