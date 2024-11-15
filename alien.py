@@ -22,3 +22,5 @@ while True:
     
 print(f"High Score: {points}")
 print(body_count)
+
+#Next add function to randomly select an alien so the player has to guess and miss 
